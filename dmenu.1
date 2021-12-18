@@ -26,6 +26,12 @@ dmenu \- dynamic menu
 .IR text ]
 .RB [ \-n
 .IR number ]
+.RB [ \-hb
+.IR color ]
+.RB [ \-hf
+.IR color ]
+.RB [ \-hp
+.IR items ]
 .P
 .BR dmenu_run " ..."
 .SH DESCRIPTION
@@ -85,11 +91,20 @@ prints version information to stdout, then exits.
 .BI \-w " windowid"
 embed into windowid.
 .TP
-.BI \-it " text".
+.BI \-it " text"
 start with initial text input.
 .TP
 .BI \-n " number"
 preseslected item starting from 0.
+.TP
+.BI \-hb " color"
+background color of the high priority items.
+.TP
+.BI \-hf " color"
+foreground color of the high priority items.
+.TP
+.BI \-hp " items"
+a csv (comma-seperated list) of high priority items.
 .SH USAGE
 dmenu is completely controlled by the keyboard.  Items are selected using the
 arrow keys, page up, page down, home, and end.
