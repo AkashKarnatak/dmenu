@@ -8,6 +8,12 @@ dmenu \- dynamic menu
 .IR lines ]
 .RB [ \-m
 .IR monitor ]
+.RB [ \-x
+.IR xoffset ]
+.RB [ \-y
+.IR yoffset ]
+.RB [ \-z
+.IR width ]
 .RB [ \-p
 .IR prompt ]
 .RB [ \-fn
@@ -24,6 +30,14 @@ dmenu \- dynamic menu
 .IR windowid ]
 .RB [ \-it
 .IR text ]
+.RB [ \-n
+.IR number ]
+.RB [ \-hb
+.IR color ]
+.RB [ \-hf
+.IR color ]
+.RB [ \-hp
+.IR items ]
 .P
 .BR dmenu_run " ..."
 .SH DESCRIPTION
@@ -42,6 +56,9 @@ which lists programs in the user's $PATH and runs the result in their $SHELL.
 .B \-b
 dmenu appears at the bottom of the screen.
 .TP
+.B \-c
+dmenu appears centered on the screen.
+.TP
 .B \-f
 dmenu grabs the keyboard before reading stdin if not reading from a tty. This
 is faster, but will lock up X until stdin reaches end\-of\-file.
@@ -55,6 +72,24 @@ dmenu lists items vertically, with the given number of lines.
 .BI \-m " monitor"
 dmenu is displayed on the monitor number supplied. Monitor numbers are starting
 from 0.
+.TP
+.BI \-x " xoffset"
+dmenu is placed at this offset measured from the left side of the monitor.
+Can be negative.
+If option
+.B \-m
+is present, the measurement will use the given monitor.
+.TP
+.BI \-y " yoffset"
+dmenu is placed at this offset measured from the top of the monitor.  If the
+.B \-b
+option is used, the offset is measured from the bottom.  Can be negative.
+If option
+.B \-m
+is present, the measurement will use the given monitor.
+.TP
+.BI \-z " width"
+sets the width of the dmenu window.
 .TP
 .BI \-p " prompt"
 defines the prompt to be displayed to the left of the input field.
@@ -83,8 +118,20 @@ prints version information to stdout, then exits.
 .BI \-w " windowid"
 embed into windowid.
 .TP
-.BI \-it " text".
+.BI \-it " text"
 start with initial text input.
+.TP
+.BI \-n " number"
+preseslected item starting from 0.
+.TP
+.BI \-hb " color"
+background color of the high priority items.
+.TP
+.BI \-hf " color"
+foreground color of the high priority items.
+.TP
+.BI \-hp " items"
+a csv (comma-seperated list) of high priority items.
 .SH USAGE
 dmenu is completely controlled by the keyboard.  Items are selected using the
 arrow keys, page up, page down, home, and end.
